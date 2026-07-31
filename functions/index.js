@@ -142,10 +142,8 @@ app.get('/api/soundcloud-profile', async (req, res) => {
 // Xuất ra Firebase Functions
 exports.api = functions.https.onRequest(app);
 
-// Chạy server trực tiếp nếu dùng Cloud Run (node index.js)
-if (require.main === module) {
-  const port = parseInt(process.env.PORT) || 8080;
-  app.listen(port, '0.0.0.0', () => {
-    console.log(`🚀 Server đang chạy tại port ${port}`);
-  });
-}
+// Chạy server trực tiếp (Cloud Run)
+const port = parseInt(process.env.PORT) || 8080;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`🚀 Server đang chạy tại port ${port}`);
+});
