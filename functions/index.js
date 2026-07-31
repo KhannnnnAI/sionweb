@@ -139,14 +139,13 @@ app.get('/api/soundcloud-profile', async (req, res) => {
   }
 });
 
-// Hỗ trợ cả Firebase Functions và Cloud Run
-if (process.env.PORT) {
-  // Đang chạy trên Cloud Run: lắng nghe trên cổng PORT
-  const port = process.env.PORT || 8080;
+// Xuất ra Firebase Functions
+exports.api = functions.https.onRequest(app);
+
+// Chạy server trực tiếp nếu dùng Cloud Run (node index.js)
+if (require.main === module) {
+  const port = parseInt(process.env.PORT) || 8080;
   app.listen(port, '0.0.0.0', () => {
     console.log(`🚀 Server đang chạy tại port ${port}`);
   });
-} else {
-  // Đang chạy trên Firebase Functions
-  exports.api = functions.https.onRequest(app);
 }
