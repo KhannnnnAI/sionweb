@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SION - Official DJ & MC Portfolio</title>
+  <meta name="description" content="Website chính thức của DJ & MC Sion - Nghệ sĩ âm nhạc, Hype MC khuấy động không khí các Club, Bar, Festival âm nhạc hàng đầu.">
+  
+  <!-- FontAwesome Icons & Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- UNIVERSE PRELOADER -->
+  <div id="universe-preloader">
+    <!-- Thêm hiệu ứng sao bay background nếu có thời gian, tạm thời nền đen + logo -->
+    <img src="Asset/Logo/logo_final-removebg-preview.png" alt="SION Logo" class="preloader-logo">
+  </div>
+
+  <div class="bg-vignette"></div>
+
+  <!-- ==========================================================================
+     CARL COX STYLE TOPBAR & NAVIGATION HEADER
+     ========================================================================== -->
+  <header class="header-topbar">
+    <div class="container">
+      
+      <!-- Combined Single Row -->
+      <div class="topbar-combined-row">
+        <!-- Left: Logo -->
+        <a href="#hero" class="topbar-logo">
+          <img src="Asset/Logo/logo_final-removebg-preview.png" alt="SION Logo">
+        </a>
+
+        <!-- Center: Navigation Links -->
+        <ul class="nav-menu-carl">
+          <li class="nav-item-carl"><a href="#hero">HOME</a></li>
+          <li class="nav-item-carl"><a href="#profile">BIOGRAPHY</a></li>
+          <li class="nav-item-carl"><a href="#experience">EXPERIENCE</a></li>
+          <li class="nav-item-carl"><a href="#workplace">WORKPLACE</a></li>
+          <li class="nav-item-carl"><a href="#posters">POSTERS</a></li>
+          <li class="nav-item-carl"><a href="#photos">PHOTOS</a></li>
+          <li class="nav-item-carl"><a href="#gallery">STAGE GALLERY</a></li>
+          <li class="nav-item-carl"><a href="#tracks">MUSIC</a></li>
+          <li class="nav-item-carl"><a href="#achievement">ACHIEVEMENT</a></li>
+          <li class="nav-item-carl"><a href="#booking">CONTACT</a></li>
+        </ul>
+
+        <!-- Right: Socials & Search -->
+        <div class="topbar-right-group">
+          <div class="topbar-socials">
+            <a href="https://www.facebook.com/mcsionnn" target="_blank" class="topbar-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/sion.com_/" target="_blank" class="topbar-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://soundcloud.com/sionnnoke" target="_blank" class="topbar-social-link" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+          </div>
+          <div class="topbar-search" title="Search">
+            <i class="fas fa-search"></i>
+          </div>
+          <!-- Hamburger Button (mobile only) -->
+          <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-nav-close"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link">HOME</a></li>
+      <li><a href="#profile" class="mobile-nav-link">BIOGRAPHY</a></li>
+      <li><a href="#experience" class="mobile-nav-link">EXPERIENCE</a></li>
+      <li><a href="#workplace" class="mobile-nav-link">WORKPLACE</a></li>
+      <li><a href="#posters" class="mobile-nav-link">POSTERS</a></li>
+      <li><a href="#photos" class="mobile-nav-link">PHOTOS</a></li>
+      <li><a href="#gallery" class="mobile-nav-link">STAGE GALLERY</a></li>
+      <li><a href="#tracks" class="mobile-nav-link">MUSIC</a></li>
+      <li><a href="#achievement" class="mobile-nav-link">ACHIEVEMENT</a></li>
+      <li><a href="#booking" class="mobile-nav-link">CONTACT</a></li>
+    </ul>
+    <div class="mobile-nav-socials">
+      <a href="https://www.facebook.com/mcsionnn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/sion.com_/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://soundcloud.com/sionnnoke" target="_blank"><i class="fab fa-soundcloud"></i></a>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+     1. HERO SECTION (CARL COX STYLE - CENTER LOGO + QUOTE & RIGHT PORTRAIT)
+     ========================================================================== -->
+  <section id="hero" class="hero-carl" data-parallax-container>
+    <canvas id="hero-particles" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
+    
+    <div class="hero-carl-fade-overlay"></div>
+    <div class="hero-carl-container">
+      
+      <!-- Left Content 100% inside Black Area -->
+      <div class="hero-carl-left" style="z-index: 5;">
+        <img src="Asset/Logo/logo_final-removebg-preview.png" alt="SION Emblem" class="carl-logo-center logo-glitch" data-parallax-speed="0.05">
+        
+        <!-- Mobile Image Only: Displays between Logo and Text on small screens -->
+        <div class="hero-mobile-img" style="display: none; width: calc(100% + 2rem); margin: -1.5rem -1rem 1.5rem -1rem; text-align: center; overflow: hidden;">
+          <img src="Asset/Photo Shoot/LSR00584.png" alt="SION Mobile Portrait" style="width: 100%; height: auto; max-height: 85vh; object-fit: cover; object-position: center; transform: scale(1.2); transform-origin: center center;">
+        </div>
+
+        <blockquote id="hero-quote" class="carl-quote" data-quote='"SION IN YOUR POSITION"'>
+          <!-- Typewriter content will be injected via JS -->
+        </blockquote>
+        
+        <p class="hero-intro-text" style="color: var(--text-muted); font-family: var(--font-quote); text-align: center; max-width: 85%; margin: 0 auto 1.5rem auto; font-size: 0.95rem; line-height: 1.6;">
+          With a deep passion for music and a natural ability to command the stage, Sion brings a unique blend of high-energy DJing and charismatic MCing to every performance. Whether steering the narrative of a major event or curating the ultimate late-night groove, Sion knows exactly how to read the room, connect with the crowd, and keep the energy soaring from the first beat to the final track.
+        </p>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; width: 100%; justify-content: center;">
+          <a href="#tracks" class="btn btn-primary btn-pulse">LISTEN MIXTAPES</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Side Hero Portrait with Dark Vignette Masking -->
+    <div class="hero-carl-right">
+      <img src="Asset/Photo Shoot/LSR00584.png" alt="SION Hero Portrait" class="hero-artist-img" data-parallax-speed="-0.03">
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     2. PROFILE SECTION (BIOGRAPHY - Lướt xuống ngay sau Hero)
+     ========================================================================== -->
+  <section id="profile" class="profile-section cyber-profile">
+    
+    <!-- Background Marquee & Glow -->
+    <div class="cyber-glow cyber-glow-left"></div>
+    <div class="cyber-glow cyber-glow-right"></div>
+    <div class="marquee-bg-container">
+      <div class="marquee-bg-text">BORN FOR THE CLUB - SION IN YOUR POSITION -</div>
+    </div>
+
+    <!-- Smoke Effect (Video) -->
+    <div class="smoke-container">
+      <video src="Asset/VIDEO/SMOKE.mp4" class="smoke-video" autoplay loop="true" muted playsinline onended="this.play()"></video>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="profile-cyber-layout">
+        
+        <!-- Left Image with HUD -->
+        <div class="cyber-img-wrapper">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <img src="Asset/Photo Shoot/DSC_4456.jpg" alt="SION Biography Portrait" class="profile-img-cyber">
+          <div class="cyber-scanline"></div>
+        </div>
+
+        <!-- Right Text Box overlapping -->
+        <div class="cyber-text-box reveal-up">
+          <span class="section-subtitle cyber-subtitle">BIOGRAPHY & PROFILE</span>
+          <h2 class="profile-title-cyber" data-text="DJ & MC SION">DJ & MC <span class="accent-text">SION</span></h2>
+          <div class="profile-role-carl">SION IN YOUR POSITION</div>
+
+          <!-- New Bio Grid -->
+          <div class="bio-details-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; margin-bottom: 1.5rem; background: rgba(255,255,255,0.02); padding: 1rem; border-left: 3px solid var(--accent-red);">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-quote); letter-spacing: 2px;">REAL NAME</div>
+              <div style="font-size: 1.1rem; font-weight: 800; font-family: var(--font-heading); color: #fff; letter-spacing: 1px;">PHẠM HỮU DUY</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-quote); letter-spacing: 2px;">BORN</div>
+              <div style="font-size: 1.1rem; font-weight: 800; font-family: var(--font-heading); color: #fff; letter-spacing: 1px;">29/09/2001</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-quote); letter-spacing: 2px;">EXPERIENCE</div>
+              <div style="font-size: 1.1rem; font-weight: 800; font-family: var(--font-heading); color: var(--accent-red); letter-spacing: 1px;">7 YEARS</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-quote); letter-spacing: 2px;">GENRES</div>
+              <div style="font-size: 1.1rem; font-weight: 800; font-family: var(--font-heading); color: #fff; letter-spacing: 1px;">HOUSE, TECHNO, HIPHOP, OPEN FORMAT</div>
+            </div>
+          </div>
+          
+          <p class="profile-bio-carl">
+            Sion là sự kết hợp bùng nổ giữa tư duy cảm âm hiện đại của một <strong>DJ chuyên nghiệp</strong> và năng lượng dẫn dắt truyền lửa không giới hạn của một <strong>MC Hype hàng đầu</strong>. Với khả năng làm chủ sân khấu tuyệt đối, Sion biến mỗi đêm nhạc tại các Club, Bar, Lounge & Music Festival thành một hành trình trải nghiệm âm thanh - ánh sáng bùng cháy đỉnh cao.
+          </p>
+
+          <div class="stats-grid-cyber">
+            <div class="stat-card-cyber">
+              <span class="stat-number-cyber">200+</span>
+              <span class="stat-label-cyber">SHOWS</span>
+            </div>
+            <div class="stat-card-cyber">
+              <span class="stat-number-cyber">20+</span>
+              <span class="stat-label-cyber">VENUES</span>
+            </div>
+            <div class="stat-card-cyber">
+              <span class="stat-number-cyber">10K+</span>
+              <span class="stat-label-cyber">CROWD</span>
+            </div>
+          </div>
+
+          <a href="Asset/PressKit .pdf" target="_blank" class="btn btn-cyber" style="margin-top: 1rem;">
+            <i class="fas fa-file-pdf"></i> DOWNLOAD PRESSKIT PDF
+            <span class="cyber-btn-glitch"></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================================================
+     3. EXPERIENCE
+     ========================================================================== -->
+  <section id="experience" class="experience-section">
+    <!-- Cyberpunk Watermark -->
+    <div class="experience-watermark" data-scroll-parallax="0.1">ON THE STAGE - IN THE CLUB - ON THE STAGE - IN THE CLUB</div>
+    
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">VENUES & RESIDENCIES</span>
+        <h2 class="section-title">MY <span class="accent-text">EXPERIENCE</span></h2>
+      </div>
+    </div>
+
+    <!-- Infinite Marquee Slider -->
+    <div class="marquee-container reveal-up delay-200">
+      <div class="marquee-fade-left"></div>
+      <div class="marquee-fade-right"></div>
+      
+      <!-- Duplicate content for seamless loop -->
+      <div class="marquee-content">
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/1900.jpg" alt="1900 Club" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Cine.jpg" alt="Cine Saigon" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Hair of the dog club.png" alt="Hair of the dog" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Khu-13-Club-10.jpg" alt="Khu 13" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Lagoon-Penthouse.jpg" alt="Lagoon Penthouse" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/MOA.jpg" alt="MOA" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/home-pub27.jpg" alt="Home Pub" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/logo-11-11-club-1024x1024.jpeg" alt="11:11 Club" class="venue-logo"></div>
+        
+        <!-- Duplicate set -->
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/1900.jpg" alt="1900 Club" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Cine.jpg" alt="Cine Saigon" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Hair of the dog club.png" alt="Hair of the dog" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Khu-13-Club-10.jpg" alt="Khu 13" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/Lagoon-Penthouse.jpg" alt="Lagoon Penthouse" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/MOA.jpg" alt="MOA" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/home-pub27.jpg" alt="Home Pub" class="venue-logo"></div>
+        <div class="venue-card"><img src="Asset/Logo/MY EXPERIENCE/logo-11-11-club-1024x1024.jpeg" alt="11:11 Club" class="venue-logo"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     4. WORK PLACE SECTION (Các địa điểm biểu diễn)
+     ========================================================================== -->
+  <section id="workplace" class="workplace-section" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">WHERE I PLAY</span>
+        <h2 class="section-title">WORK<span class="accent-text">PLACE</span></h2>
+        <div style="font-family: var(--font-quote); font-weight: 800; color: #00c8ff; letter-spacing: 5px; font-size: 1.2rem; margin-top: 0.5rem; text-transform: uppercase;">AT HO CHI MINH CITY</div>
+      </div>
+
+      <div class="workplace-list-carl" style="margin-top: 3rem;">
+        
+        <div class="tour-card-carl">
+          <img src="Asset/Logo/Cine.jpg" alt="Cine Saigon Logo" style="width: 70px; height: 70px; border-radius: 12px; object-fit: cover; border: 2px solid #00c8ff;">
+          <div style="flex: 1;">
+            <h4 style="font-family:var(--font-heading); font-size:1.2rem; color:#ffffff;">CINE SAIGON</h4>
+            <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.4;">148 Cong Quynh, Ben Thanh, Ho Chi Minh<br>SDT: 0901 866 336</p>
+          </div>
+          <a href="https://www.facebook.com/cinesaigon.vn" target="_blank" class="btn btn-outline" style="padding:0.5rem 1.2rem; font-size:0.75rem;">FANPAGE</a>
+        </div>
+
+        <div class="tour-card-carl">
+          <img src="Asset/Logo/584982111_122117175033000124_8198483348828669526_n.jpg" alt="Aplus Saigon Logo" style="width: 70px; height: 70px; border-radius: 12px; object-fit: cover; border: 2px solid #00c8ff;">
+          <div style="flex: 1;">
+            <h4 style="font-family:var(--font-heading); font-size:1.2rem; color:#ffffff;">APLUS SAIGON</h4>
+            <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.4;">492 Vo Van Kiet, Cau Ong Lanh, Ho Chi Minh<br>SDT: 0977 922 222</p>
+          </div>
+          <a href="https://www.facebook.com/aplussaigon" target="_blank" class="btn btn-outline" style="padding:0.5rem 1.2rem; font-size:0.75rem;">FANPAGE</a>
+        </div>
+
+        <div class="tour-card-carl">
+          <img src="Asset/Logo/602457301_122115485931050784_1461059006359688543_n.jpg" alt="Palmora Logo" style="width: 70px; height: 70px; border-radius: 12px; object-fit: cover; border: 2px solid #00c8ff;">
+          <div style="flex: 1;">
+            <h4 style="font-family:var(--font-heading); font-size:1.2rem; color:#ffffff;">PALMORA</h4>
+            <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.4;">18 Nguyen Cu Trinh, Ben Thanh, Ho Chi Minh<br>SDT: 0898 478 320</p>
+          </div>
+          <a href="https://www.facebook.com/PalmoraVietNam" target="_blank" class="btn btn-outline" style="padding:0.5rem 1.2rem; font-size:0.75rem;">FANPAGE</a>
+        </div>
+
+        <div class="tour-card-carl">
+          <img src="Asset/Logo/738937745_122116520037354424_4713315612378576184_n.jpg" alt="Astrix Saigon Logo" style="width: 70px; height: 70px; border-radius: 12px; object-fit: cover; border: 2px solid #00c8ff;">
+          <div style="flex: 1;">
+            <h4 style="font-family:var(--font-heading); font-size:1.2rem; color:#ffffff;">ASTRIX SAIGON</h4>
+            <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.4;">36 Bui Thi Xuan, Ben Thanh, Ho Chi Minh<br>SDT: 0907 901 068</p>
+          </div>
+          <a href="https://www.facebook.com/AstrixSaigon" target="_blank" class="btn btn-outline" style="padding:0.5rem 1.2rem; font-size:0.75rem;">FANPAGE</a>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     5. POSTER GALLERY
+     ========================================================================== -->
+  <section id="posters" class="posters-section" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">EVENT HIGHLIGHTS</span>
+        <h2 class="section-title">POSTER <span class="accent-text">GALLERY</span></h2>
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="poster-nav-buttons" style="display: flex; gap: 15px; justify-content: flex-end; align-items: center; margin-top: 1rem;">
+        <button id="poster-prev" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>
+        <button id="poster-next" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="poster-scroll-carl" style="margin-top: 1rem;">
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/EY1-5azA.jpeg" data-title="Poster 1">
+          <img src="Asset/Poster/2025/EY1-5azA.jpeg" alt="Poster 1">
+        </div>
+        
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262237735_c71a40f4172c3769c8a01f3f7cbf465f.jpg" data-title="Poster 2">
+          <img src="Asset/Poster/2025/z8081262237735_c71a40f4172c3769c8a01f3f7cbf465f.jpg" alt="Poster 2">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/474432343_565878853108536_7825922464144147804_n.jpg" data-title="Poster 3">
+          <img src="Asset/Poster/2025/474432343_565878853108536_7825922464144147804_n.jpg" alt="Poster 3">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/472039938_2269563386747049_397440124025996629_n.jpg" data-title="Poster 4">
+          <img src="Asset/Poster/2025/472039938_2269563386747049_397440124025996629_n.jpg" alt="Poster 4">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/IMG_0081.JPG" data-title="Poster 5">
+          <img src="Asset/Poster/2025/IMG_0081.JPG" alt="Poster 5">
+        </div>
+
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262173898_c922932fd2b2abb22644010d58b9d606.jpg" data-title="Poster 8">
+          <img src="Asset/Poster/2025/z8081262173898_c922932fd2b2abb22644010d58b9d606.jpg" alt="Poster 8">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262219684_b5838f926c4da9e51a66c493ad403e44.jpg" data-title="Poster 9">
+          <img src="Asset/Poster/2025/z8081262219684_b5838f926c4da9e51a66c493ad403e44.jpg" alt="Poster 9">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262231173_90a87117aa219e769701547d489f977f.jpg" data-title="Poster 10">
+          <img src="Asset/Poster/2025/z8081262231173_90a87117aa219e769701547d489f977f.jpg" alt="Poster 10">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/474240634_576630068465978_4341469133471988232_n.jpg" data-title="Poster 11">
+          <img src="Asset/Poster/2025/474240634_576630068465978_4341469133471988232_n.jpg" alt="Poster 11">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262239540_649a85de249988f7bebd319f7e8f819a.jpg" data-title="Poster 12">
+          <img src="Asset/Poster/2025/z8081262239540_649a85de249988f7bebd319f7e8f819a.jpg" alt="Poster 12">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     6. PHOTO
+     ========================================================================== -->
+  <section id="photos" class="photos-section" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">PORTRAITS & MOMENTS</span>
+        <h2 class="section-title">PHOTO <span class="accent-text">SHOOT</span></h2>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="photo-nav-buttons" style="display: flex; gap: 15px; justify-content: flex-end; align-items: center; margin-top: 1rem;">
+        <button id="photo-prev" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>
+        <button id="photo-next" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div id="photo-scroll" class="poster-scroll-carl" style="margin-top: 1rem;">
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Photo Shoot/DSC_4535.jpg" data-title="Photo Shoot 1">
+          <img src="Asset/Photo Shoot/DSC_4535.jpg" alt="Photo Shoot 1">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Photo Shoot/DSC_4512.jpg" data-title="Photo Shoot 2">
+          <img src="Asset/Photo Shoot/DSC_4512.jpg" alt="Photo Shoot 2">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Photo Shoot/LSR00584.jpg" data-title="Photo Shoot 3">
+          <img src="Asset/Photo Shoot/LSR00584.jpg" alt="Photo Shoot 3">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Photo Shoot/LSR00641.jpg" data-title="Photo Shoot 4">
+          <img src="Asset/Photo Shoot/LSR00641.jpg" alt="Photo Shoot 4">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Photo Shoot/LSR00699.jpg" data-title="Photo Shoot 5">
+          <img src="Asset/Photo Shoot/LSR00699.jpg" alt="Photo Shoot 5">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     7. GALLERY & VIDEOS
+     ========================================================================== -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">VISUAL ARCHIVE</span>
+        <h2 class="section-title">STAGE <span class="accent-text">GALLERY</span></h2>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="gallery-nav-buttons" style="display: flex; gap: 15px; justify-content: flex-end; align-items: center; margin-top: 1rem;">
+        <button id="gallery-prev" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>
+        <button id="gallery-next" class="btn btn-outline" style="width: 44px; height: 44px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div id="gallery-scroll" class="poster-scroll-carl" style="margin-top: 1rem;">
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/7.jpeg" data-title="Stage Gallery 1">
+          <img src="Asset/STAGE GALLERY/7.jpeg" alt="Stage Gallery 1">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP (40).JPG" data-title="Stage Gallery 2">
+          <img src="Asset/STAGE GALLERY/MRP (40).JPG" alt="Stage Gallery 2">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP (46).JPG" data-title="Stage Gallery 3">
+          <img src="Asset/STAGE GALLERY/MRP (46).JPG" alt="Stage Gallery 3">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP01402-Enhanced-NR.JPG" data-title="Stage Gallery 4">
+          <img src="Asset/STAGE GALLERY/MRP01402-Enhanced-NR.JPG" alt="Stage Gallery 4">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP01413-Enhanced-NR.JPG" data-title="Stage Gallery 5">
+          <img src="Asset/STAGE GALLERY/MRP01413-Enhanced-NR.JPG" alt="Stage Gallery 5">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP01689-Enhanced-NR.JPG" data-title="Stage Gallery 6">
+          <img src="Asset/STAGE GALLERY/MRP01689-Enhanced-NR.JPG" alt="Stage Gallery 6">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP01691-Enhanced-NR.JPG" data-title="Stage Gallery 7">
+          <img src="Asset/STAGE GALLERY/MRP01691-Enhanced-NR.JPG" alt="Stage Gallery 7">
+        </div>
+        <div class="gallery-item-carl reveal-right" data-type="image" data-src="Asset/STAGE GALLERY/MRP06346-Enhanced-NR.JPG" data-title="Stage Gallery 8">
+          <img src="Asset/STAGE GALLERY/MRP06346-Enhanced-NR.JPG" alt="Stage Gallery 8">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     8. DISCOGRAPHY / TRACKS & SOUNDCLOUD
+     ========================================================================== -->
+  <section id="tracks" class="tracks-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">MUSIC & MIXTAPES</span>
+        <h2 class="section-title">SOUNDCLOUD <span class="accent-text">DISCOGRAPHY</span></h2>
+      </div>
+
+      <!-- Official SoundCloud Embed Box -->
+      <!-- Official SoundCloud Embed Box -->
+      <div class="sc-profile-card" id="profile-card">
+        <div class="loading">Đang tải thông tin Profile...</div>
+      </div>
+
+      <script>
+        async function loadSoundCloudProfile() {
+          try {
+            const response = await fetch('/api/soundcloud-profile?url=https://soundcloud.com/sionnnoke');
+            if (!response.ok) throw new Error('API error');
+            const data = await response.json();
+
+            // Render Profile Card
+            document.getElementById('profile-card').innerHTML = `
+              <div class="sc-header">
+                <img class="sc-avatar" src="${data.avatar}" alt="${data.username}">
+                <div class="sc-info">
+                  <h3 class="sc-username">${data.username}</h3>
+                  <div class="sc-stats">
+                    <span><strong>${data.followers}</strong> Followers</span>
+                    <span><strong>${data.trackCount}</strong> Tracks</span>
+                  </div>
+                </div>
+                <a href="${data.profileUrl}" target="_blank" class="sc-open-btn">OPEN SOUNDCLOUD ↗</a>
+              </div>
+            `;
+
+            // Dữ liệu track cho Featured Player
+            const tracks = data.tracks || [];
+            
+            // Khởi tạo Featured Player
+            if (window.initFeaturedPlayer) {
+              window.initFeaturedPlayer(tracks);
+            }
+
+          } catch (err) {
+            console.error(err);
+            document.getElementById('profile-card').innerHTML = `<div class="loading" style="color:#ff4d4d;">Lỗi tải SoundCloud.</div>`;
+            document.getElementById('mix3d-showcase').innerHTML = `<div class="loading" style="color:#ff4d4d;">Lỗi tải Player.</div>`;
+          }
+        }
+
+        loadSoundCloudProfile();
+      </script>
+
+      <!-- FEATURED MIX PLAYER -->
+      <div class="mix3d-section">
+        <div class="mix3d-header" style="justify-content: center;">
+          <h3 class="mix3d-title">FEATURED <span class="mix3d-title-accent">MIX</span></h3>
+          <div class="mix3d-title-line" style="display: none;"></div>
+        </div>
+
+        <div style="display: none;">
+          <iframe id="featured-sc-widget" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/sionnnoke&color=%23ff0000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+        </div>
+
+        <div class="featured-layout">
+          <!-- Left Decoration -->
+          <div class="fm-side-decor fm-left hide-on-mobile">
+            <div class="fm-vinyl-container">
+              <div class="fm-vinyl">
+                <div class="fm-vinyl-center"></div>
+              </div>
+            </div>
+            <div class="fm-vertical-text">LIVE SESSION</div>
+          </div>
+
+          <!-- Center Container (Player + Playlist) -->
+          <div class="fm-center-container">
+            <!-- Player Card -->
+            <div class="gp-card" id="featured-player">
+              <!-- Loading Overlay -->
+              <div class="gp-loading-overlay">
+                  <div class="lds-ripple"><div></div><div></div></div>
+                </div>
+
+                <div class="gp-header">
+                  <span>Now Playing</span>
+                  <button class="gp-options-btn" style="background:transparent; border:none; color:#999; cursor:pointer;"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+                
+                <div class="gp-artwork">
+                  <img id="gp-cover" src="Asset/Logo/logo_final-removebg-preview.png" alt="Cover">
+                </div>
+                
+                <div class="gp-info">
+                  <h3 id="gp-title">SION MIXTAPE</h3>
+                  <p>SION</p>
+                </div>
+
+                <div class="gp-progress">
+                  <div class="gp-progress-bar-container" id="gp-progress-bar-container">
+                    <div id="gp-progress-fill" class="gp-progress-fill"></div>
+                  </div>
+                  <div class="gp-time">
+                    <span id="gp-time-current">0:00</span>
+                    <span id="gp-time-total">0:00</span>
+                  </div>
+                </div>
+
+                <div class="gp-controls">
+                  <button id="gp-shuffle"><i class="fas fa-random"></i></button>
+                  <button id="gp-prev"><i class="fas fa-step-backward"></i></button>
+                  <button id="gp-play" class="gp-play-btn"><i class="fas fa-play"></i></button>
+                  <button id="gp-next"><i class="fas fa-step-forward"></i></button>
+                  <button id="gp-repeat"><i class="fas fa-redo"></i></button>
+                </div>
+
+            </div> <!-- Closes gp-card -->
+
+            <!-- Music List Side Panel -->
+            <div class="playlist-wrapper">
+              <div id="featured-playlist-panel" class="gp-playlist-panel gp-card" style="padding: 0;">
+                <div class="gp-playlist-header" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 20px;">
+                  <div style="display:flex; align-items:center; gap:10px; font-weight: bold; color: #fff;"><i class="fas fa-music"></i> Music list</div>
+                </div>
+                <div id="gp-playlist-items" class="gp-playlist-items">
+                  <div class="loading" style="padding: 20px; text-align:center;">Đang tải danh sách...</div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- Closes fm-center-container -->
+          
+          <!-- Right Decoration -->
+          <div class="fm-side-decor fm-right hide-on-mobile">
+            <div class="fm-vertical-text">SION EXCLUSIVE</div>
+            <div class="fm-eq-bars">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div> <!-- Closes featured-layout -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================================================
+     10. ACHIEVEMENT
+     ========================================================================== -->
+  <section id="achievement" class="achievement-section" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">AWARDS & MILESTONES</span>
+        <h2 class="section-title">MY <span class="accent-text">ACHIEVEMENTS</span></h2>
+      </div>
+
+      <!-- CINE SAIGON CARD -->
+      <div class="achievement-card reveal-up">
+        <div class="ac-left">
+          <!-- Logo Box -->
+          <div class="ac-logo">
+            <img src="Asset/Logo/Cine.jpg" alt="Cine Saigon Logo">
+          </div>
+          
+          <!-- Text Content -->
+          <div class="ac-text">
+            <h3>CINE SAIGON</h3>
+            <p class="ac-address">148 Cong Quynh, Ben Thanh, Ho Chi Minh</p>
+            <p class="ac-phone">SDT: 0901 866 336</p>
+            <p class="ac-role"><i class="fas fa-crown"></i> Resident MC / Leader</p>
+          </div>
+        </div>
+
+        <div class="ac-right">
+
+          <!-- Button -->
+          <a href="https://www.facebook.com/cinesaigon.vn" target="_blank" class="ac-btn">FANPAGE</a>
+        </div>
+      </div>
+
+      <div class="poster-scroll-carl" style="margin-top: 2rem; justify-content: center;" id="achievement-scroll">
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081242090346_da474ebe8e5f9ec87bd5fce646a82a6f.jpg" data-title="Best MC Casting Performance">
+          <img src="Asset/Poster/2025/z8081242090346_da474ebe8e5f9ec87bd5fce646a82a6f.jpg" alt="Best MC Casting Performance">
+        </div>
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081242100726_0f834a2287850941761eb6fb7c472ff1.jpg" data-title="Cine Saigon Sion Take Over">
+          <img src="Asset/Poster/2025/z8081242100726_0f834a2287850941761eb6fb7c472ff1.jpg" alt="Cine Saigon Sion Take Over">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     11. THE ARTIST
+     ========================================================================== -->
+  <section id="artist" class="artist-showcase-section">
+    <div class="container" style="position:relative; z-index:10; margin-bottom: 3rem; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <div class="section-header reveal-up" style="display: flex; flex-direction: column; align-items: center;">
+        <span class="section-subtitle">THE VISION & CREW</span>
+        <h2 class="section-title">ARTIST <span class="accent-text">SIGNATURE</span></h2>
+      </div>
+    </div>
+
+    <div class="container artist-container-grid">
+      <!-- Left Image -->
+      <div class="artist-img-box reveal-up delay-100">
+        <img src="Asset/Artist/z8087993063497_2f28f79faf45765fe6246b7d992502e5.jpg" alt="DJ SION Image 1" class="artist-grid-img" data-scroll-parallax="-0.02">
+      </div>
+      
+      <!-- Center Text -->
+      <div class="artist-text-center reveal-up delay-200">
+        <h2 class="artist-slogan-center"><span class="accent">SION IN YOUR POSITION</span></h2>
+        <div class="artist-signature-center"><span class="beam-gemsmod">GEMSMOD</span> - <span class="beam-criminel">CRIMINÉL</span></div>
+      </div>
+      
+      <!-- Right Image -->
+      <div class="artist-img-box reveal-up delay-300">
+        <img src="Asset/Artist/z8087995073224_31c90e199901e685591e85459e7f38e3.jpg" alt="DJ SION Image 2" class="artist-grid-img" data-scroll-parallax="-0.04">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+     7. BOOKING & CONTACT
+     ========================================================================== -->
+  <section id="booking" class="booking-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-subtitle">INFORMATION & DIRECT INQUIRIES</span>
+        <h2 class="section-title">CONTACT</h2>
+      </div>
+
+      <div class="booking-grid-carl reveal-up" style="grid-template-columns: 1fr; text-align: center; max-width: 600px; margin: 0 auto;">
+        <div>
+          <h3 style="font-family:var(--font-heading); font-size:1.8rem; color:#ffffff; margin-bottom:1rem;">DIRECT CONTACT</h3>
+          <p style="color:var(--text-muted); margin-bottom:2rem;">Liên hệ trực tiếp qua Zalo hoặc Email để đặt show tại Club & Sự kiện xa xỉ.</p>
+
+          <div style="margin-bottom:1.5rem;">
+            <div style="font-family:var(--font-quote); color:var(--accent-red); font-size:0.8rem;">HOTLINE / ZALO BOOKING</div>
+            <div style="font-family:var(--font-heading); font-size:1.3rem; color:#ffffff;">0868894080 - 0909785101</div>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <div style="font-family:var(--font-quote); color:var(--accent-red); font-size:0.8rem;">EMAIL INQUIRIES</div>
+            <div style="font-family:var(--font-heading); font-size:1.3rem; color:#ffffff;">mcsionnn@gmail.com</div>
+          </div>
+
+          <!-- Social Networks -->
+          <div style="margin-top: 2rem;">
+            <div style="font-family:var(--font-quote); color:var(--accent-red); font-size:0.8rem; margin-bottom: 1rem; letter-spacing: 2px;">SOCIAL NETWORKS</div>
+            <div class="contact-socials" style="display: flex; align-items: center; justify-content: center; gap: 1.5rem;">
+              <a href="https://www.facebook.com/mcsionnn" target="_blank" class="topbar-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/sion.com_/" target="_blank" class="topbar-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://soundcloud.com/sionnnoke" target="_blank" class="topbar-social-link" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-carl">
+    <div class="container">
+      <p>© 2026 SION. ALL RIGHTS RESERVED. DESIGNED IN CARL COX SIGNATURE DARK STYLE.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="gallery-modal" class="modal-overlay">
+    <div style="max-width:900px; width:100%; position:relative;">
+      <button id="modal-close-btn" style="position:absolute; top:-40px; right:0; background:transparent; border:none; color:#fff; font-size:2rem; cursor:pointer;"><i class="fas fa-times"></i></button>
+      <div id="modal-body-content"></div>
+    </div>
+  </div>
+
+
+
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script src="main.js"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCn2M1EzzI-3eNAQknsOAtpYox2O9Ik7og",
+      authDomain: "sion-web-fa229.firebaseapp.com",
+      projectId: "sion-web-fa229",
+      storageBucket: "sion-web-fa229.firebasestorage.app",
+      messagingSenderId: "1054547601360",
+      appId: "1:1054547601360:web:3d38667793e87e9ddbfbd5",
+      measurementId: "G-13XJL1S4VH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>

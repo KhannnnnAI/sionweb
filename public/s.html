@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundCloud Profile Integration Demo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        scOrange: '#FF5500',
+                        darkBg: '#09090b',
+                        cardBg: '#121215',
+                        cardBorder: '#222228',
+                        cardHover: '#2a2a32'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121215;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(255, 85, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-scOrange selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-cardBorder bg-cardBg/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-scOrange flex items-center justify-center text-white shadow-lg shadow-scOrange/20">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 640 512">
+                        <path d="M111.5 295.9c-2.3 0-4.5-.4-6.6-1.1L91.1 416h38.2l12.4-121.2c-7.9.8-19.8 1.1-30.2 1.1zm-44.2-13.8c-2.2 0-4.3.4-6.4 1.1L48.2 416h31.2l10.9-133.9c-7.3 1.1-16 1-23 1zm138.8-16c-3 0-6 .2-8.9.7L181.7 416h45.2l12.9-149.2c-12 1.9-28.7 2.4-43.7 2.4zm102.3-25.5c-4.4 0-8.9.5-13.3 1.4L278.4 416h52.8l13.6-172.9c-15.6 2.3-33.1 3.5-49.8 3.5zM22.1 306.6c-2.2 0-4.3.6-6.3 1.6L4.5 416h24.7l9.4-108.8c-5.4.6-11.2.6-16.5.6zM612 284c-12.8 0-25.2 2.8-36.4 7.9-12.2-40.4-49.8-70-94.2-70-12.6 0-24.6 2.4-35.6 6.8L438 416h180.7c22.8 0 41.3-18.5 41.3-41.3 0-22.8-18.5-41.3-41.3-41.3z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-base text-white tracking-wide">SoundCloud Profile Embed Demo</h1>
+                    <p class="text-xs text-zinc-400">Giải pháp khắc phục lỗi "Permissions policy / Privacy policy"</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Sẵn sàng sử dụng
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+        
+        <!-- Explanation Banner -->
+        <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-200 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-amber-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                <div>
+                    <p class="font-semibold text-white">Tại sao dán trực tiếp Link Profile (`soundcloud.com/username`) lại bị lỗi xám?</p>
+                    <p class="text-xs text-amber-200/80 mt-1">
+                        SoundCloud **chỉ hỗ trợ Embed dữ liệu bài hát (Track) hoặc Playlist**. Khi dán link Profile vào iframe, script bị chặn sự kiện `unload` và đứng ở màn hình Privacy Policy.
+                        **Cách xử lý chuẩn:** Dùng Card UI bọc ngoài (chứa Avatar, Tên Profile & Nút Open SoundCloud) và nhúng 1 Track/Playlist bên trong.
+                    </p>
+                </div>
+            </div>
+            <button onclick="document.getElementById('customizer-panel').scrollIntoView({behavior: 'smooth'})" class="shrink-0 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-semibold transition">
+                Tự chỉnh thông tin ngay ↓
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Left Panel: Customizer Controls -->
+            <section id="customizer-panel" class="lg:col-span-5 flex flex-col gap-6">
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-5">
+                    <div class="flex items-center justify-between border-b border-cardBorder pb-4">
+                        <h2 class="font-bold text-white text-lg flex items-center gap-2">
+                            <svg class="w-5 h-5 text-scOrange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                            Cấu hình Card SoundCloud
+                        </h2>
+                        <button onclick="resetToPresets('sion')" class="text-xs text-zinc-400 hover:text-scOrange transition">
+                            Reset Mẫu Sion
+                        </button>
+                    </div>
+
+                    <!-- Preset Selector Buttons -->
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Chọn mẫu thử sẵn (Preset)</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="applyPreset('sion')" class="px-3 py-2 text-xs font-medium rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700/50 hover:border-scOrange transition text-center">
+                                Sion Official
+                            </button>
+                            <button onclick="applyPreset('anyma')" class="px-3 py-2 text-xs font-medium rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700/50 hover:border-scOrange transition text-center">
+                                Anyma
+                            </button>
+                            <button onclick="applyPreset('garrix')" class="px-3 py-2 text-xs font-medium rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700/50 hover:border-scOrange transition text-center">
+                                Martin Garrix
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input 1: Profile Username / URL -->
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5" for="input-profile-url">
+                            1. Đường dẫn Profile SoundCloud cá nhân
+                        </label>
+                        <input type="text" id="input-profile-url" value="https://soundcloud.com/sion-official" 
+                            oninput="updateCardPreview()"
+                            placeholder="https://soundcloud.com/ten-user"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700/60 text-sm text-white focus:outline-none focus:border-scOrange focus:ring-1 focus:ring-scOrange transition">
+                        <p class="text-[11px] text-zinc-500 mt-1">Dùng cho nút "OPEN SOUNDCLOUD" ở góc trên Card.</p>
+                    </div>
+
+                    <!-- Input 2: Track / Playlist Link -->
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5" for="input-track-url">
+                            2. Link Bài hát (Track) hoặc Playlist nhúng vào Player
+                        </label>
+                        <input type="text" id="input-track-url" value="https://soundcloud.com/chillhopdotcom/sleeping-panda-lofi-beats" 
+                            oninput="updateCardPreview()"
+                            placeholder="https://soundcloud.com/artist/track-name"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700/60 text-sm text-white focus:outline-none focus:border-scOrange focus:ring-1 focus:ring-scOrange transition">
+                        <p class="text-[11px] text-emerald-400/90 mt-1">✔ Phải là link bài hát hoặc playlist cụ thể để tránh lỗi Privacy!</p>
+                    </div>
+
+                    <!-- Input 3: Display Name -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-300 mb-1.5" for="input-channel-name">
+                                Tên hiển thị
+                            </label>
+                            <input type="text" id="input-channel-name" value="Sion Official SoundCloud" 
+                                oninput="updateCardPreview()"
+                                class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700/60 text-sm text-white focus:outline-none focus:border-scOrange transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-300 mb-1.5" for="input-bio">
+                                Subtitle / Subtext
+                            </label>
+                            <input type="text" id="input-bio" value="Producer / DJ Channel" 
+                                oninput="updateCardPreview()"
+                                class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700/60 text-sm text-white focus:outline-none focus:border-scOrange transition">
+                        </div>
+                    </div>
+
+                    <!-- Input 4: Avatar URL -->
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5" for="input-avatar-url">
+                            Link Avatar (Ảnh đại diện)
+                        </label>
+                        <input type="text" id="input-avatar-url" value="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&auto=format&fit=crop&q=80" 
+                            oninput="updateCardPreview()"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700/60 text-sm text-white focus:outline-none focus:border-scOrange transition">
+                    </div>
+
+                    <!-- Input 5: Player Settings -->
+                    <div class="pt-2 border-t border-cardBorder">
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Tùy chọn hiển thị Player</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs text-zinc-300 mb-1">Màu chủ đạo Player</label>
+                                <div class="flex items-center gap-2">
+                                    <input type="color" id="input-player-color" value="#ff5500" onchange="updateCardPreview()" class="w-8 h-8 rounded border-none bg-transparent cursor-pointer">
+                                    <span id="color-hex-label" class="text-xs text-zinc-400 font-mono">#FF5500</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-zinc-300 mb-1">Chiều cao Player</label>
+                                <select id="input-player-height" onchange="updateCardPreview()" class="w-full px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-700/60 text-xs text-white focus:outline-none focus:border-scOrange">
+                                    <option value="166" selected>Thanh nhỏ (166px)</option>
+                                    <option value="300">Dạng thẻ vừa (300px)</option>
+                                    <option value="450">Thẻ lớn / Playlist (450px)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Live Preview & Generated Code -->
+            <section class="lg:col-span-7 flex flex-col gap-6">
+                
+                <!-- Tab Switching -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-2 flex items-center justify-between">
+                    <div class="flex items-center gap-1">
+                        <button id="tab-btn-preview" onclick="switchTab('preview')" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-scOrange text-white shadow-md">
+                            👁️ Xem trước giao diện (Live Preview)
+                        </button>
+                        <button id="tab-btn-code" onclick="switchTab('code')" class="px-4 py-2 rounded-xl text-xs font-bold transition text-zinc-400 hover:text-white hover:bg-zinc-800">
+                            💻 Lấy mã HTML & CSS
+                        </button>
+                    </div>
+                    <span class="text-[11px] text-zinc-500 pr-2 hidden sm:inline-block">Theme Dark Mode</span>
+                </div>
+
+                <!-- TAB 1: Live Preview Area -->
+                <div id="tab-content-preview" class="space-y-6">
+                    <div class="bg-black/60 border border-cardBorder rounded-2xl p-6 sm:p-8 glow-effect">
+                        <p class="text-xs text-zinc-500 uppercase tracking-widest font-semibold mb-4 text-center">--- Minh họa hiển thị trên Website của bạn ---</p>
+                        
+                        <!-- THE SOUNDCLOUD CARD COMPONENT -->
+                        <div id="sc-card-component" class="bg-[#0c0c0e] border border-[#222228] hover:border-[#33333d] transition-all duration-300 rounded-2xl p-5 sm:p-6 max-w-3xl mx-auto shadow-2xl">
+                            
+                            <!-- Header Row: Avatar + Info + Action Button -->
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+                                <div class="flex items-center gap-3.5">
+                                    <img id="demo-avatar" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&auto=format&fit=crop&q=80" 
+                                        alt="SoundCloud Profile Avatar" 
+                                        class="w-12 h-12 rounded-full object-cover ring-2 ring-scOrange/30 shrink-0">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <!-- SoundCloud Logo Icon -->
+                                            <svg class="w-4 h-4 fill-scOrange shrink-0" viewBox="0 0 640 512">
+                                                <path d="M111.5 295.9c-2.3 0-4.5-.4-6.6-1.1L91.1 416h38.2l12.4-121.2c-7.9.8-19.8 1.1-30.2 1.1zm-44.2-13.8c-2.2 0-4.3.4-6.4 1.1L48.2 416h31.2l10.9-133.9c-7.3 1.1-16 1-23 1zm138.8-16c-3 0-6 .2-8.9.7L181.7 416h45.2l12.9-149.2c-12 1.9-28.7 2.4-43.7 2.4zm102.3-25.5c-4.4 0-8.9.5-13.3 1.4L278.4 416h52.8l13.6-172.9c-15.6 2.3-33.1 3.5-49.8 3.5zM22.1 306.6c-2.2 0-4.3.6-6.3 1.6L4.5 416h24.7l9.4-108.8c-5.4.6-11.2.6-16.5.6zM612 284c-12.8 0-25.2 2.8-36.4 7.9-12.2-40.4-49.8-70-94.2-70-12.6 0-24.6 2.4-35.6 6.8L438 416h180.7c22.8 0 41.3-18.5 41.3-41.3 0-22.8-18.5-41.3-41.3-41.3z"/>
+                                            </svg>
+                                            <h3 id="demo-channel-name" class="font-bold text-white text-base leading-snug">Sion Official SoundCloud</h3>
+                                        </div>
+                                        <p id="demo-bio" class="text-xs text-zinc-400 mt-0.5">Producer / DJ Channel</p>
+                                    </div>
+                                </div>
+
+                                <!-- External Profile Link Button -->
+                                <a id="demo-profile-link" href="https://soundcloud.com/sion-official" target="_blank" rel="noopener noreferrer" 
+                                    class="w-full sm:w-auto px-4 py-2 rounded-xl border border-zinc-700/80 hover:border-white bg-zinc-900/80 hover:bg-zinc-800 text-white font-semibold text-xs tracking-wider uppercase transition flex items-center justify-center gap-2 group shrink-0">
+                                    <span>OPEN SOUNDCLOUD</span>
+                                    <svg class="w-3.5 h-3.5 text-zinc-400 group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <!-- Player Iframe Container -->
+                            <div id="demo-iframe-container" class="rounded-xl overflow-hidden bg-zinc-900/50 border border-zinc-800/80">
+                                <!-- Dynamic iframe injected by JS -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Additional Guidance Box -->
+                    <div class="p-5 rounded-2xl bg-cardBg border border-cardBorder text-xs text-zinc-400 space-y-2">
+                        <p class="font-semibold text-zinc-200">📌 Mẹo nhỏ tối ưu cho trang web của bạn:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-1">
+                            <li>Bạn có thể tạo một <strong class="text-white">Playlist riêng trên SoundCloud</strong> (Ví dụ: "My Official Releases") rồi nhúng link Playlist đó vào. Như vậy khách vào web có thể chọn nghe danh sách nhiều bài liên tục!</li>
+                            <li>Thuộc tính <code class="text-scOrange bg-zinc-900 px-1 py-0.5 rounded">allow="autoplay"</code> cho phép phát nhạc mượt mà khi người dùng nhấn Play.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Generated Code View -->
+                <div id="tab-content-code" class="hidden space-y-4">
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-zinc-300">Code HTML & CSS đã tạo sẵn cho web của bạn:</span>
+                        <button onclick="copyGeneratedCode()" class="px-3.5 py-1.5 rounded-lg bg-scOrange hover:bg-scOrange/90 text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-md">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 002-2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                            </svg>
+                            Sao chép Code (Copy)
+                        </button>
+                    </div>
+
+                    <pre class="bg-zinc-950 border border-zinc-800 rounded-2xl p-5 overflow-x-auto text-xs font-mono text-zinc-300 leading-relaxed select-all"><code id="code-output">
+<!-- Generated Code Will Appear Here -->
+                    </code></pre>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 px-4 py-3 rounded-xl bg-scOrange text-white font-medium text-xs shadow-2xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span id="toast-message">Đã sao chép mã vào clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-cardBorder py-6 bg-cardBg mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-zinc-500">
+            SoundCloud Embed Player Customizer &bull; Tối ưu hóa UI cho Web Đen / Club / Bar / Musician
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Preset Database
+        const PRESETS = {
+            sion: {
+                profileUrl: 'https://soundcloud.com/sion-official',
+                trackUrl: 'https://soundcloud.com/chillhopdotcom/sleeping-panda-lofi-beats',
+                name: 'Sion Official SoundCloud Channel',
+                bio: 'Official Music & Mixes',
+                avatar: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&auto=format&fit=crop&q=80',
+                color: '#ff5500',
+                height: '166'
+            },
+            anyma: {
+                profileUrl: 'https://soundcloud.com/anyma-music',
+                trackUrl: 'https://soundcloud.com/chillhopdotcom/kupla-kingdom-in-blue',
+                name: 'Anyma Official SoundCloud',
+                bio: 'Afterlife / Electronic & Visual Arts',
+                avatar: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&auto=format&fit=crop&q=80',
+                color: '#00e5ff',
+                height: '166'
+            },
+            garrix: {
+                profileUrl: 'https://soundcloud.com/martingarrix',
+                trackUrl: 'https://soundcloud.com/chillhopdotcom/mommy-cloud-nine',
+                name: 'Martin Garrix Channel',
+                bio: 'STMPD RCRDS / Electronic Producer',
+                avatar: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=150&auto=format&fit=crop&q=80',
+                color: '#ff5500',
+                height: '166'
+            }
+        };
+
+        // Initialize on load
+        window.onload = function() {
+            updateCardPreview();
+        };
+
+        // Update card rendering based on input fields
+        function updateCardPreview() {
+            const profileUrl = document.getElementById('input-profile-url').value.trim() || 'https://soundcloud.com';
+            const trackUrl = document.getElementById('input-track-url').value.trim() || 'https://soundcloud.com/chillhopdotcom/sleeping-panda-lofi-beats';
+            const channelName = document.getElementById('input-channel-name').value.trim() || 'SoundCloud Channel';
+            const bio = document.getElementById('input-bio').value.trim() || '';
+            const avatarUrl = document.getElementById('input-avatar-url').value.trim() || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&auto=format&fit=crop&q=80';
+            const playerColor = document.getElementById('input-player-color').value.trim() || '#ff5500';
+            const playerHeight = document.getElementById('input-player-height').value || '166';
+
+            // Update UI elements
+            document.getElementById('demo-channel-name').textContent = channelName;
+            document.getElementById('demo-bio').textContent = bio;
+            document.getElementById('demo-avatar').src = avatarUrl;
+            document.getElementById('demo-profile-link').href = profileUrl;
+            document.getElementById('color-hex-label').textContent = playerColor.toUpperCase();
+
+            // Encode track URL for SoundCloud widget iframe
+            const encodedTrackUrl = encodeURIComponent(trackUrl);
+            const cleanColorHex = playerColor.replace('#', '');
+            
+            // Build SoundCloud Player iframe src
+            const iframeSrc = `https://w.soundcloud.com/player/?url=${encodedTrackUrl}&color=%23${cleanColorHex}&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`;
+
+            // Inject iframe into live container
+            const container = document.getElementById('demo-iframe-container');
+            container.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="${playerHeight}" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allow="autoplay; clipboard-write; encrypted-media"
+                    src="${iframeSrc}"
+                    class="w-full transition-all duration-300">
+                </iframe>
+            `;
+
+            // Update code snippet output text
+            generateCodeSnippet(profileUrl, trackUrl, channelName, bio, avatarUrl, iframeSrc, playerHeight);
+        }
+
+        // Apply Preset Configuration
+        function applyPreset(key) {
+            const preset = PRESETS[key];
+            if (!preset) return;
+
+            document.getElementById('input-profile-url').value = preset.profileUrl;
+            document.getElementById('input-track-url').value = preset.trackUrl;
+            document.getElementById('input-channel-name').value = preset.name;
+            document.getElementById('input-bio').value = preset.bio;
+            document.getElementById('input-avatar-url').value = preset.avatar;
+            document.getElementById('input-player-color').value = preset.color;
+            document.getElementById('input-player-height').value = preset.height;
+
+            updateCardPreview();
+            showToast(`Đã áp dụng mẫu preset ${preset.name}!`);
+        }
+
+        function resetToPresets(key) {
+            applyPreset(key);
+        }
+
+        // Generate clean standalone HTML & CSS for the user to copy
+        function generateCodeSnippet(profileUrl, trackUrl, channelName, bio, avatarUrl, iframeSrc, playerHeight) {
+            const code = `<!-- SOUNDCLOUD PROFILE CARD COMPONENT -->
+<div class="sc-card">
+  <div class="sc-header">
+    <div class="sc-user">
+      <img src="${avatarUrl}" alt="${channelName}" class="sc-avatar" />
+      <div>
+        <div class="sc-title-row">
+          <svg class="sc-logo" viewBox="0 0 640 512">
+            <path fill="#FF5500" d="M111.5 295.9c-2.3 0-4.5-.4-6.6-1.1L91.1 416h38.2l12.4-121.2c-7.9.8-19.8 1.1-30.2 1.1zm-44.2-13.8c-2.2 0-4.3.4-6.4 1.1L48.2 416h31.2l10.9-133.9c-7.3 1.1-16 1-23 1zm138.8-16c-3 0-6 .2-8.9.7L181.7 416h45.2l12.9-149.2c-12 1.9-28.7 2.4-43.7 2.4zm102.3-25.5c-4.4 0-8.9.5-13.3 1.4L278.4 416h52.8l13.6-172.9c-15.6 2.3-33.1 3.5-49.8 3.5zM22.1 306.6c-2.2 0-4.3.6-6.3 1.6L4.5 416h24.7l9.4-108.8c-5.4.6-11.2.6-16.5.6zM612 284c-12.8 0-25.2 2.8-36.4 7.9-12.2-40.4-49.8-70-94.2-70-12.6 0-24.6 2.4-35.6 6.8L438 416h180.7c22.8 0 41.3-18.5 41.3-41.3 0-22.8-18.5-41.3-41.3-41.3z"/>
+          </svg>
+          <h3 class="sc-name">${channelName}</h3>
+        </div>
+        <p class="sc-bio">${bio}</p>
+      </div>
+    </div>
+
+    <a href="${profileUrl}" target="_blank" rel="noopener" class="sc-btn">
+      OPEN SOUNDCLOUD ↗
+    </a>
+  </div>
+
+  <div class="sc-player">
+    <iframe 
+      width="100%" 
+      height="${playerHeight}" 
+      scrolling="no" 
+      frameborder="no" 
+      allow="autoplay; clipboard-write; encrypted-media"
+      src="${iframeSrc}">
+    </iframe>
+  </div>
+</div>
+
+<style>
+  .sc-card {
+    background-color: #0c0c0e;
+    border: 1px solid #222228;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 800px;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .sc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .sc-user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .sc-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .sc-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sc-logo {
+    width: 18px;
+    height: 18px;
+  }
+  .sc-name {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .sc-bio {
+    color: #a1a1aa;
+    font-size: 12px;
+    margin: 2px 0 0 0;
+  }
+  .sc-btn {
+    background: #18181b;
+    color: #ffffff;
+    border: 1px solid #3f3f46;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .sc-btn:hover {
+    background: #27272a;
+    border-color: #ffffff;
+  }
+  .sc-player iframe {
+    border-radius: 12px;
+    display: block;
+  }
+</style>`;
+
+            document.getElementById('code-output').textContent = code;
+        }
+
+        // Tab Switching Handler
+        function switchTab(tab) {
+            const previewTab = document.getElementById('tab-content-preview');
+            const codeTab = document.getElementById('tab-content-code');
+            const btnPreview = document.getElementById('tab-btn-preview');
+            const btnCode = document.getElementById('tab-btn-code');
+
+            if (tab === 'preview') {
+                previewTab.classList.remove('hidden');
+                codeTab.classList.add('hidden');
+
+                btnPreview.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-scOrange text-white shadow-md";
+                btnCode.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-zinc-400 hover:text-white hover:bg-zinc-800";
+            } else {
+                previewTab.classList.add('hidden');
+                codeTab.classList.remove('hidden');
+
+                btnCode.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-scOrange text-white shadow-md";
+                btnPreview.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-zinc-400 hover:text-white hover:bg-zinc-800";
+            }
+        }
+
+        // Copy Code Functionality with execCommand fallback
+        function copyGeneratedCode() {
+            const codeText = document.getElementById('code-output').textContent;
+            
+            const textarea = document.createElement('textarea');
+            textarea.value = codeText;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("Đã sao chép toàn bộ mã HTML & CSS thành công!");
+            } catch (err) {
+                showToast("Không thể sao chép tự động. Hãy bôi đen code và bấm Ctrl+C!");
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // Toast Notification Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
