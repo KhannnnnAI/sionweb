@@ -135,6 +135,9 @@ app.get('/api/soundcloud-profile', async (req, res) => {
       return res.status(200).json(profileCache.data);
     }
     return res.status(500).json({ error: 'Không thể lấy dữ liệu SoundCloud Profile' });
+  }
+});
+
 // Khởi chạy server - Cloud Run cung cấp PORT qua biến môi trường
 const port = parseInt(process.env.PORT) || 8080;
 app.listen(port, '0.0.0.0', () => {
