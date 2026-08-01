@@ -11,6 +11,9 @@ RUN npm install --omit=dev
 # Copy the rest of the functions code
 COPY functions/ ./
 
+# Copy the frontend static files
+COPY public/ ./public/
+
 # Expose port cho Cloud Run
 EXPOSE 8080
 
