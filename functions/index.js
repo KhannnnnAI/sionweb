@@ -1,4 +1,3 @@
-const functions = require('firebase-functions');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -139,11 +138,10 @@ app.get('/api/soundcloud-profile', async (req, res) => {
   }
 });
 
-// Xuất ra Firebase Functions
-exports.api = functions.https.onRequest(app);
-
-// Chạy server trực tiếp (Cloud Run)
+// Khởi chạy server - Cloud Run cung cấp PORT qua biến môi trường
 const port = parseInt(process.env.PORT) || 8080;
 app.listen(port, '0.0.0.0', () => {
   console.log(`🚀 Server đang chạy tại port ${port}`);
 });
+
+
