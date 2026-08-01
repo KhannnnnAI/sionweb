@@ -468,7 +468,7 @@
       <script>
         async function loadSoundCloudProfile() {
           try {
-            const response = await fetch('/api/soundcloud-profile?url=https://soundcloud.com/sionnnoke');
+            const response = await fetch('https://sionwebs-1054547601360.asia-southeast1.run.app/api/soundcloud-profile?url=https://soundcloud.com/sionnnoke');
             if (!response.ok) throw new Error('API error');
             const data = await response.json();
 
