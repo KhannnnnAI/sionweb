@@ -935,4 +935,26 @@ function initPosterNav() {
       }
     });
   }
+
+  // 4. Achievement Navigation
+  const achScroll = document.getElementById('achievement-scroll');
+  const achPrev = document.getElementById('achievement-prev');
+  const achNext = document.getElementById('achievement-next');
+
+  if (achScroll && achPrev && achNext) {
+    achPrev.addEventListener('click', () => {
+      const item = achScroll.querySelector('.poster-item-carl');
+      if(item) {
+        const itemWidth = item.offsetWidth + 24;
+        achScroll.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+      }
+    });
+    achNext.addEventListener('click', () => {
+      const item = achScroll.querySelector('.poster-item-carl');
+      if(item) {
+        const itemWidth = item.offsetWidth + 24;
+        achScroll.scrollBy({ left: itemWidth, behavior: 'smooth' });
+      }
+    });
+  }
 }

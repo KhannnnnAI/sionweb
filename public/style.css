@@ -3364,19 +3364,11 @@ body.loaded .hero-carl-right {
     background: rgba(255, 255, 255, 0.4);
   }
 
-  /* No scrollbar for Achievements on desktop */
-  #achievement-scroll {
-    overflow-x: hidden !important;
-    padding-bottom: 0 !important;
-  }
-  #achievement-scroll::-webkit-scrollbar {
-    display: none !important;
-  }
-
   /* Hide left/right navigation buttons on desktop */
   .poster-nav-buttons,
   .photo-nav-buttons,
-  .gallery-nav-buttons {
+  .gallery-nav-buttons,
+  .achievement-nav-buttons {
     display: none !important;
   }
 }
