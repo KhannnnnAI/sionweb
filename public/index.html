@@ -332,8 +332,8 @@
       </div>
 
       <div class="poster-scroll-carl" style="margin-top: 1rem;">
-        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/EY1-5azA.jpeg" data-title="Poster 1">
-          <img src="Asset/Poster/2025/EY1-5azA.jpeg" alt="Poster 1">
+        <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/DJ.png" data-title="Poster 1">
+          <img src="Asset/Poster/2025/DJ.png" alt="Poster 1">
         </div>
         
         <div class="poster-item-carl reveal-right" data-type="image" data-src="Asset/Poster/2025/z8081262237735_c71a40f4172c3769c8a01f3f7cbf465f.jpg" data-title="Poster 2">
@@ -468,7 +468,8 @@
       <script>
         async function loadSoundCloudProfile() {
           try {
-            const response = await fetch('https://sionwebs-1054547601360.asia-southeast1.run.app/api/soundcloud-profile?url=https://soundcloud.com/sionnnoke');
+            const apiBase = window.location.protocol.startsWith('http') ? '' : 'https://sionweb-git-main-khannnnnai.vercel.app';
+            const response = await fetch(`${apiBase}/api/soundcloud-profile?url=https://soundcloud.com/sionnnoke`);
             if (!response.ok) throw new Error('API error');
             const data = await response.json();
 
@@ -733,23 +734,5 @@
   <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src="main.js"></script>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCn2M1EzzI-3eNAQknsOAtpYox2O9Ik7og",
-      authDomain: "sion-web-fa229.firebaseapp.com",
-      projectId: "sion-web-fa229",
-      storageBucket: "sion-web-fa229.firebasestorage.app",
-      messagingSenderId: "1054547601360",
-      appId: "1:1054547601360:web:3d38667793e87e9ddbfbd5",
-      measurementId: "G-13XJL1S4VH"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
 </body>
 </html>
