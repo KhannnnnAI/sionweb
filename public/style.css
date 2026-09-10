@@ -1512,10 +1512,11 @@ body.loaded .hero-carl-right {
 
 .artist-container-grid {
   display: grid;
-  grid-template-columns: minmax(350px, 520px) 1fr minmax(350px, 520px);
-  gap: 3rem;
+  grid-template-columns: repeat(2, minmax(320px, 480px));
+  justify-content: center;
   align-items: center;
-  max-width: 1550px;
+  gap: 3.5rem;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -1533,13 +1534,15 @@ body.loaded .hero-carl-right {
 
 .artist-grid-img {
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
   height: auto;
   aspect-ratio: 1 / 1;
-  border-radius: 20px;
+  border-radius: 24px;
   object-fit: contain;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease, box-shadow 0.6s ease;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease, box-shadow 0.6s ease, border-color 0.4s ease;
   transform-style: preserve-3d;
   position: relative;
   z-index: 2;
@@ -1547,12 +1550,12 @@ body.loaded .hero-carl-right {
 
 /* Left Card: GEMS MOB glow */
 .artist-img-box:nth-child(1) .artist-grid-img {
-  box-shadow: 0 0 35px rgba(0, 242, 254, 0.25), 0 0 15px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.25), 0 15px 35px rgba(0, 0, 0, 0.85);
 }
 
 /* Right Card: CRIMINEL glow */
-.artist-img-box:nth-child(3) .artist-grid-img {
-  box-shadow: 0 0 35px rgba(255, 0, 60, 0.25), 0 0 15px rgba(0, 0, 0, 0.9);
+.artist-img-box:nth-child(2) .artist-grid-img {
+  box-shadow: 0 0 35px rgba(255, 0, 60, 0.25), 0 15px 35px rgba(0, 0, 0, 0.85);
 }
 
 /* Color reveal animation when scrolled into view */
@@ -1561,7 +1564,7 @@ body.loaded .hero-carl-right {
   animation-delay: 0.2s;
 }
 @keyframes colorReveal {
-  0% { filter: contrast(105%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5)); opacity: 0.8; }
+  0% { filter: contrast(105%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5)); opacity: 0.85; }
   100% { filter: contrast(110%) drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)); opacity: 1; }
 }
 
@@ -1592,161 +1595,49 @@ body.loaded .hero-carl-right {
 @keyframes sweepAndStayLeft {
   0% { right: -50%; opacity: 0; }
   10% { opacity: 1; }
-  100% { right: 120%; opacity: 1; } /* Stops outside the card and stays */
+  100% { right: 120%; opacity: 1; }
 }
 .artist-img-box:nth-child(1):hover::before {
   right: 150%;
 }
 
 /* Right Card: Sweep outward and STAY */
-.artist-img-box:nth-child(3)::before {
+.artist-img-box:nth-child(2)::before {
   left: -50%; 
   right: auto;
   transform: skewX(-25deg);
   transition: left 0.5s ease;
 }
-.artist-img-box.is-visible:nth-child(3)::before {
+.artist-img-box.is-visible:nth-child(2)::before {
   animation: sweepAndStayRight 1.5s ease-out forwards;
   animation-delay: 0.3s;
 }
 @keyframes sweepAndStayRight {
   0% { left: -50%; opacity: 0; }
   10% { opacity: 1; }
-  100% { left: 120%; opacity: 1; } /* Stops outside the card and stays */
+  100% { left: 120%; opacity: 1; }
 }
-.artist-img-box:nth-child(3):hover::before {
+.artist-img-box:nth-child(2):hover::before {
   left: 150%;
 }
 
-/* Inward 3D Tilt */
+/* Inward 3D Tilt & Glow on Hover */
 .artist-img-box:nth-child(1):hover .artist-grid-img {
-  transform: scale(1.05) rotateY(15deg) rotateX(5deg);
-  filter: grayscale(0%) contrast(100%) drop-shadow(0 20px 30px rgba(0, 200, 255, 0.4)) !important;
+  transform: translateY(-8px) scale(1.03) rotateY(8deg);
+  box-shadow: 0 0 50px rgba(0, 242, 254, 0.45), 0 20px 40px rgba(0, 0, 0, 0.95) !important;
+  border-color: rgba(0, 242, 254, 0.4);
 }
 
-.artist-img-box:nth-child(3):hover .artist-grid-img {
-  transform: scale(1.05) rotateY(-15deg) rotateX(5deg);
-  filter: grayscale(0%) contrast(100%) drop-shadow(0 20px 30px rgba(255, 0, 68, 0.4)) !important;
-}
-
-.artist-text-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-
-.artist-slogan-center {
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  line-height: 1.1;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.artist-slogan-center .accent {
-  background: linear-gradient(90deg, #ff0026, #00f2fe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  display: block;
-}
-
-.artist-signature-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  margin: 1.5rem 0;
-}
-
-.beam-gemsmod, .beam-criminel {
-  font-size: clamp(2.5rem, 3.5vw, 4.2rem);
-  font-weight: 900;
-  letter-spacing: clamp(4px, 0.8vw, 8px);
-  line-height: 1.1;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  cursor: default;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-
-.beam-gemsmod {
-  background: linear-gradient(
-    120deg,
-    #7a8a99 0%,
-    #b0c8d8 30%,
-    #ffffff 50%,
-    #00f2fe 65%,
-    #7a8a99 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: sweep-rtl 3.5s linear infinite;
-  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.35));
-}
-
-.beam-criminel {
-  background: linear-gradient(
-    120deg,
-    #997a7a 0%,
-    #d8b0b0 30%,
-    #ffffff 50%,
-    #ff003c 65%,
-    #997a7a 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: sweep-ltr 3.5s linear infinite;
-  filter: drop-shadow(0 0 20px rgba(255, 0, 60, 0.35));
-}
-
-.beam-gemsmod:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.7));
-}
-
-.beam-criminel:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 35px rgba(255, 0, 60, 0.7));
-}
-
-.signature-sep {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.3);
-  line-height: 1;
-  user-select: none;
-}
-
-@keyframes sweep-ltr {
-  0% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes sweep-rtl {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+.artist-img-box:nth-child(2):hover .artist-grid-img {
+  transform: translateY(-8px) scale(1.03) rotateY(-8deg);
+  box-shadow: 0 0 50px rgba(255, 0, 60, 0.45), 0 20px 40px rgba(0, 0, 0, 0.95) !important;
+  border-color: rgba(255, 0, 60, 0.4);
 }
 
 @media (max-width: 900px) {
   .artist-container-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
-  }
-  .artist-slogan-center {
-    font-size: 4rem;
   }
 }
 
@@ -3226,14 +3117,8 @@ body.loaded .hero-carl-right {
     box-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
   }
 
-  .artist-img-box:nth-child(3) {
+  .artist-img-box:nth-child(2) {
     box-shadow: 0 0 25px rgba(255, 0, 68, 0.25);
-  }
-
-  /* --- Artist Signature Logos on Mobile --- */
-  .beam-gemsmod, .beam-criminel {
-    font-size: clamp(2rem, 8vw, 2.8rem) !important;
-    letter-spacing: 4px !important;
   }
 }
 
