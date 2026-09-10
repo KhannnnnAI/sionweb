@@ -1730,7 +1730,7 @@ body.loaded .hero-carl-right {
   display: flex;
   width: max-content;
   gap: 3.5rem;
-  animation: marqueeScroll 28s linear infinite;
+  animation: marqueeScroll 38s linear infinite;
 }
 
 .marquee-container:hover .marquee-content {
