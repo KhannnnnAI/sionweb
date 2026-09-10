@@ -299,6 +299,11 @@ function initGalleryModal() {
           <div style="text-align:center;">
             <img src="${src}" alt="${title}" style="max-width:100%; max-height:75vh; border-radius:8px; border:1px solid #e60023; object-fit:contain;" />
             <h3 style="margin-top:1rem; font-family:'Montserrat',sans-serif; color:#ffffff;">${title}</h3>
+            <div style="margin-top:0.75rem;">
+              <a href="${src}" download="${title || 'SION-Photo'}" class="btn btn-outline" style="padding:0.45rem 1.4rem; font-size:0.8rem; display:inline-flex; align-items:center; gap:0.5rem; border-color:#00c8ff; color:#00c8ff; border-radius:6px;">
+                <i class="fas fa-download"></i> TẢI ẢNH GỐC (HD)
+              </a>
+            </div>
           </div>
         `);
       }
