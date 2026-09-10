@@ -1535,12 +1535,22 @@ body.loaded .hero-carl-right {
    ========================================================================== */
 .experience-section {
   position: relative;
-  padding: 5rem 0;
+  padding: 6.5rem 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Asset/Moment Catch/_LGH6563.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+
+.experience-section .section-title {
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+}
+
+.experience-section .section-subtitle {
+  font-size: 1rem;
+  letter-spacing: 4px;
 }
 
 .experience-watermark {
@@ -1549,7 +1559,7 @@ body.loaded .hero-carl-right {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-heading);
-  font-size: 8rem;
+  font-size: 9.5rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.02);
   white-space: nowrap;
@@ -1561,9 +1571,9 @@ body.loaded .hero-carl-right {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   z-index: 2;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
 
 .marquee-fade-left,
@@ -1587,8 +1597,8 @@ body.loaded .hero-carl-right {
 .marquee-content {
   display: flex;
   width: max-content;
-  gap: 3rem;
-  animation: marqueeScroll 25s linear infinite;
+  gap: 3.5rem;
+  animation: marqueeScroll 28s linear infinite;
 }
 
 .marquee-container:hover .marquee-content {
@@ -1597,39 +1607,43 @@ body.loaded .hero-carl-right {
 
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1.5rem)); }
+  100% { transform: translateX(calc(-50% - 1.75rem)); }
 }
 
 .venue-card {
   background: #111;
-  border-radius: 12px;
-  padding: 1.5rem;
-  width: 220px;
-  height: 120px;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  width: 280px;
+  height: 155px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .venue-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 200, 255, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 200, 255, 0.25);
   border-color: #00c8ff;
 }
 
 .venue-logo {
   max-width: 100%;
   max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  filter: brightness(80%);
-  transition: filter 0.4s ease;
+  filter: brightness(85%);
+  transform: scale(1.12);
+  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
 .venue-card:hover .venue-logo {
-  filter: brightness(110%);
+  filter: brightness(115%);
+  transform: scale(1.22);
 }
 
 /* SMOKE EFFECT */
@@ -2916,6 +2930,20 @@ body.loaded .hero-carl-right {
   }
 
   /* --- Marquee / Experience Section --- */
+  .experience-section {
+    padding: 4rem 0 !important;
+  }
+  .experience-section .section-title {
+    font-size: 2.2rem !important;
+  }
+  .venue-card {
+    width: 210px !important;
+    height: 120px !important;
+    padding: 1rem 1.25rem !important;
+  }
+  .marquee-content {
+    gap: 2rem !important;
+  }
   .marquee-bg-text {
     font-size: 5rem;
   }
