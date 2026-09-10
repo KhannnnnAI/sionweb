@@ -1645,11 +1645,86 @@ body.loaded .hero-carl-right {
 }
 
 .artist-signature-center {
-  font-family: var(--font-quote);
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  font-family: var(--font-heading);
   text-transform: uppercase;
+  margin: 1.5rem 0;
+}
+
+.beam-gemsmod, .beam-criminel {
+  font-size: 3.8rem;
+  font-weight: 900;
+  letter-spacing: 8px;
+  line-height: 1.1;
+  display: inline-block;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.beam-gemsmod {
+  background: linear-gradient(
+    120deg,
+    #7a8a99 0%,
+    #b0c8d8 30%,
+    #ffffff 50%,
+    #00f2fe 65%,
+    #7a8a99 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: sweep-rtl 3.5s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.35));
+}
+
+.beam-criminel {
+  background: linear-gradient(
+    120deg,
+    #997a7a 0%,
+    #d8b0b0 30%,
+    #ffffff 50%,
+    #ff003c 65%,
+    #997a7a 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: sweep-ltr 3.5s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 60, 0.35));
+}
+
+.beam-gemsmod:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.7));
+}
+
+.beam-criminel:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 35px rgba(255, 0, 60, 0.7));
+}
+
+.signature-sep {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  user-select: none;
+}
+
+@keyframes sweep-ltr {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sweep-rtl {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 @media (max-width: 900px) {
@@ -3145,39 +3220,10 @@ body.loaded .hero-carl-right {
     font-size: 2.8rem !important;
   }
 
-  /* --- Artist Beam Effects --- */
+  /* --- Artist Signature Logos on Mobile --- */
   .beam-gemsmod, .beam-criminel {
-    background: linear-gradient(
-      120deg,
-      var(--text-muted) 0%,
-      var(--text-muted) 40%,
-      #ffffff 50%,
-      var(--text-muted) 60%,
-      var(--text-muted) 100%
-    );
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    display: inline-block;
-  }
-
-  .beam-gemsmod {
-    animation: sweep-rtl 3s linear infinite;
-  }
-
-  .beam-criminel {
-    animation: sweep-ltr 3s linear infinite;
-  }
-
-  @keyframes sweep-ltr {
-    0% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @keyframes sweep-rtl {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    font-size: 2.5rem !important;
+    letter-spacing: 5px !important;
   }
 }
 
