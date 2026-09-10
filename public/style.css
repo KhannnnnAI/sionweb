@@ -1512,10 +1512,10 @@ body.loaded .hero-carl-right {
 
 .artist-container-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 2rem;
+  grid-template-columns: minmax(200px, 300px) 1fr minmax(200px, 300px);
+  gap: 2.5rem;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -1656,12 +1656,13 @@ body.loaded .hero-carl-right {
 }
 
 .beam-gemsmod, .beam-criminel {
-  font-size: 3.8rem;
+  font-size: clamp(5rem, 7.5vw, 9rem);
   font-weight: 900;
-  letter-spacing: 8px;
-  line-height: 1.1;
+  letter-spacing: clamp(6px, 1.2vw, 16px);
+  line-height: 1;
   display: inline-block;
   text-align: center;
+  white-space: nowrap;
   cursor: default;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
@@ -3222,8 +3223,8 @@ body.loaded .hero-carl-right {
 
   /* --- Artist Signature Logos on Mobile --- */
   .beam-gemsmod, .beam-criminel {
-    font-size: 2.5rem !important;
-    letter-spacing: 5px !important;
+    font-size: clamp(2.8rem, 11vw, 4.2rem) !important;
+    letter-spacing: clamp(4px, 1.5vw, 8px) !important;
   }
 }
 
