@@ -1512,10 +1512,10 @@ body.loaded .hero-carl-right {
 
 .artist-container-grid {
   display: grid;
-  grid-template-columns: minmax(200px, 300px) 1fr minmax(200px, 300px);
-  gap: 2.5rem;
+  grid-template-columns: minmax(350px, 520px) 1fr minmax(350px, 520px);
+  gap: 3rem;
   align-items: center;
-  max-width: 1500px;
+  max-width: 1550px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -1528,29 +1528,41 @@ body.loaded .hero-carl-right {
   align-items: center;
   position: relative;
   perspective: 1000px;
+  width: 100%;
 }
 
 .artist-grid-img {
   width: 100%;
-  max-width: 350px;
+  max-width: 520px;
   height: auto;
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
   object-fit: contain;
-  filter: grayscale(100%) contrast(110%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease, box-shadow 0.6s ease;
   transform-style: preserve-3d;
   position: relative;
   z-index: 2;
 }
 
+/* Left Card: GEMS MOB glow */
+.artist-img-box:nth-child(1) .artist-grid-img {
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.25), 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+/* Right Card: CRIMINEL glow */
+.artist-img-box:nth-child(3) .artist-grid-img {
+  box-shadow: 0 0 35px rgba(255, 0, 60, 0.25), 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
 /* Color reveal animation when scrolled into view */
 .artist-img-box.is-visible .artist-grid-img {
-  animation: colorReveal 1.5s ease-out forwards;
+  animation: colorReveal 1.2s ease-out forwards;
   animation-delay: 0.2s;
 }
 @keyframes colorReveal {
-  0% { filter: grayscale(100%) contrast(110%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5)); }
-  100% { filter: grayscale(0%) contrast(100%) drop-shadow(0 0 20px rgba(0, 200, 255, 0.2)); }
+  0% { filter: contrast(105%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5)); opacity: 0.8; }
+  100% { filter: contrast(110%) drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)); opacity: 1; }
 }
 
 /* Foil Sweep Effect - Base */
@@ -1656,10 +1668,10 @@ body.loaded .hero-carl-right {
 }
 
 .beam-gemsmod, .beam-criminel {
-  font-size: clamp(5rem, 7.5vw, 9rem);
+  font-size: clamp(2.5rem, 3.5vw, 4.2rem);
   font-weight: 900;
-  letter-spacing: clamp(6px, 1.2vw, 16px);
-  line-height: 1;
+  letter-spacing: clamp(4px, 0.8vw, 8px);
+  line-height: 1.1;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -3205,11 +3217,12 @@ body.loaded .hero-carl-right {
   }
 
   .artist-img-box {
-    max-width: 350px;
+    max-width: 440px;
+    width: 90%;
     margin: 0 auto;
     padding: 0 !important;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
   }
 
@@ -3217,14 +3230,10 @@ body.loaded .hero-carl-right {
     box-shadow: 0 0 25px rgba(255, 0, 68, 0.25);
   }
 
-  .artist-slogan-center {
-    font-size: 2.8rem !important;
-  }
-
   /* --- Artist Signature Logos on Mobile --- */
   .beam-gemsmod, .beam-criminel {
-    font-size: clamp(2.8rem, 11vw, 4.2rem) !important;
-    letter-spacing: clamp(4px, 1.5vw, 8px) !important;
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    letter-spacing: 4px !important;
   }
 }
 
