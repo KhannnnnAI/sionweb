@@ -393,6 +393,50 @@ body.loaded .hero-carl-right {
   50% { opacity: 0; }
 }
 
+/* Hero Intro Text & Punchline */
+.hero-intro-text {
+  max-width: 580px;
+  margin: 0 auto 1.5rem auto;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78);
+  text-align: center;
+}
+
+.hero-intro-text p {
+  margin: 0 0 0.75rem 0;
+}
+
+.hero-punchline {
+  margin-top: 1.2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(0, 200, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.hero-punchline .punchline-highlight {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+.hero-punchline .punchline-sub {
+  font-family: var(--font-quote);
+  font-size: 0.88rem;
+  color: #00c8ff;
+  letter-spacing: 1.5px;
+  font-style: italic;
+}
+
+
 /* ==========================================================================
    2. PROFILE SECTION (CYBERPUNK BIO)
    ========================================================================== */
@@ -2626,9 +2670,23 @@ body.loaded .hero-carl-right {
   }
 
   .hero-intro-text {
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
     max-width: 100% !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.2rem !important;
+    padding: 0 0.5rem;
+  }
+
+  .hero-intro-text p {
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-punchline .punchline-highlight {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-punchline .punchline-sub {
+    font-size: 0.8rem;
   }
 
   .section-title {
